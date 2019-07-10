@@ -23,13 +23,13 @@ export function WalletSelector(props: any) {
         <FromStream
           props={[client]}
           createStream={() =>
-            combineLatest(
+            combineLatest([
               client.currentUserAccount$.pipe(
                 distinctUntilChanged(),
                 map((value) => (value === undefined ? value : makeWalletSelectorValueOption({ userAccount: value }))),
               ),
               getWalletSelectorOptions$(client, client.userAccounts$, client.block$),
-            ).pipe(
+            ]).pipe(
               catchError((_error) =>
                 // tslint:disable-next-line no-any
                 of<any>([undefined, []]),

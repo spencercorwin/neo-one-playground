@@ -215,7 +215,7 @@ const run = async ({
   await neoOne(neoOneCoverage);
   const proc = execa(
     'node',
-    ['-r', 'ts-node/register/transpile-only', path.resolve(__dirname, 'start.ts'), '--ci', '--cypress'].concat(
+    ['-r', 'ts-node/register/transpile-only', path.resolve(__dirname, 'start.ts'), '--ci'].concat(
       coverage ? ['--coverage'] : [],
     ),
     {

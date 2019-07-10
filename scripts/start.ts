@@ -9,9 +9,7 @@ const argv = yargs
   .describe('ci', 'Running as part of continuous integration.')
   .default('ci', false)
   .describe('coverage', 'Instrument code for coverage.')
-  .default('coverage', false)
-  .describe('cypress', 'Running as part of Cypress tests.')
-  .default('cypress', false).argv;
+  .default('coverage', false).argv;
 
 const createWebpackConfig = (): webpack.Configuration => ({
   mode: 'development',
@@ -59,7 +57,6 @@ const createWebpackConfig = (): webpack.Configuration => ({
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
-      'process.env.CYPRESS': JSON.stringify(argv.cypress),
     }),
   ],
   module: {

@@ -41,6 +41,7 @@
     "static-this": false,
     "no-null-undefined-union": false,
     "array-type": [true, "array-simple"],
+    "strict-comparisons": false,
 
     "trailing-comma": [
       true,
